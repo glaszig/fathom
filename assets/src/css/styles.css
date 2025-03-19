@@ -28,11 +28,11 @@ font size   12, 16, 64
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #000;
+		--bg: rgb(20, 16, 62);
 		--bg2: rgb(12, 10, 38);
-		--bg3: rgb(20, 16, 62);
+		--bg3: #000;
 		--text: #f5f7fa;
-		--control: rgb(20, 16, 62);
+		--control: rgb(12, 10, 38);
 		--control-text: #f5f7fa;
 		--highlight: #fff;
 		--accent: #9183fe;
