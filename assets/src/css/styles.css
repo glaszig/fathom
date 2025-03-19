@@ -63,11 +63,11 @@ header li { padding: 8px 0; }
 nav li.logo a { color: var(--accent); font-size: 16px; }
 nav li.logo a:hover { color: var(--text); }
 
-nav li.sites { background: var(--control) url("data:image/svg+xml;charset=utf8,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23533feb' d='M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z'%3E%3C/path%3E%3C/svg%3E") 97% 8px no-repeat; border-radius: 4px; padding: 8px; background-size: 10px auto; }
-nav li.sites.expanded { background: var(--bg3) url("data:image/svg+xml;charset=utf8,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23fff' d='M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z'%3E%3C/path%3E%3C/svg%3E") 97% 8px no-repeat; background-size: 10px auto; }
+nav .sites { position: relative; background: var(--control) url("data:image/svg+xml;charset=utf8,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23533feb' d='M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z'%3E%3C/path%3E%3C/svg%3E") right 8px no-repeat; border-radius: 4px; padding: 8px; padding-right: 0; width: 210px; background-size: 10px auto; }
+nav .sites.expanded { background-color: var(--bg3); background-image: url("data:image/svg+xml;charset=utf8,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23fff' d='M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z'%3E%3C/path%3E%3C/svg%3E"); background-size: 10px auto; }
 nav li ul { display: none; position: absolute; z-index: 1001; width: 100%; background: var(--bg3); border-radius: 4px; padding: 8px 0; margin: 0 0 0 -8px; }
-nav li.expanded ul { display: block; box-shadow: 0 2px 8px 0 rgba(34,34,34,.10); }
-nav li.sites.expanded a { color: var(--control-text); }
+nav .expanded ul { display: block; box-shadow: 0 2px 8px 0 rgba(34,34,34,.10); }
+nav .sites.expanded a { color: var(--control-text); }
 nav li ul li { padding: 0 4px; width: 100%; }
 nav li ul a { color: #ddd; display: inline-block; width: 100%; font-size: 13px; padding: 4px; }
 nav li ul a:hover { background: rgba(255,255,255,.2); border-radius: 2px; }
@@ -76,6 +76,9 @@ nav li ul li.add-new a { color: var(--progress) !important; }
 nav .settings svg { width: 16px; display: inline-block; transition: ease all .2s; }
 nav .settings svg path { fill: var(--accent); }
 nav .settings svg:hover { transform: rotate(45deg); }
+
+.main-nav { display: flex; justify-content: space-between; align-items: center; }
+.main-nav > ul { display: flex; align-items: center; gap: 8px; }
 
 nav.date-nav { display: flex; flex-direction: column; gap: 8px; margin: 32px 0 8px; }
 nav.date-nav ul { border-radius: 4px; background: var(--control); padding: 8px 16px; }
@@ -152,6 +155,9 @@ div.delete a { color: red; }
 
 
 @media ( min-width: 769px ) {
+	nav .sites { display: inline-block; }
+	nav .sites, nav .sites.expanded { background-position: 184px 8px; }
+
 	nav.date-nav { flex-direction: row; }
 	nav.date-nav ul { display: flex; align-items: center; }
 }
@@ -161,15 +167,9 @@ div.delete a { color: red; }
 	.rapper { padding: 32px 0; }
 	header, footer { margin-bottom: 32px 0; }
 
-	.main-nav li,
 	footer li {
 		display: inline-block;
-		margin-right: 16px;
 	}
-
-	nav li.sites { display: inline-block; width: 204px; margin-right: 0; }
-	nav li.sites, nav li.settings { float: right; }
-	nav li.sites, nav li.sites.expanded { background-position: 184px 8px; }
 
 	nav li ul { width: 204px; right: 0; margin: 0;  }
 
