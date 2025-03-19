@@ -46,9 +46,9 @@ font size   12, 16, 64
 html, body, #root { height: 100%;  background: var(--bg); }
 body { overflow-y: scroll;  font: 400 16px "overpass", sans-serif; color: var(--text); text-align: center; padding: 8px; }
 
-.rapper { text-align: left; margin: 0 auto; max-width: 1124px; }
+.rapper { text-align: left; margin: 0 auto; padding: 16px 0; max-width: 1124px; }
 
-header, footer { margin: 16px 0; }
+header, footer { margin-bottom: 16px; }
 section {}
 footer { font-size: 12px; color: #aaa; }
 
@@ -77,8 +77,8 @@ nav .settings svg { width: 16px; display: inline-block; transition: ease all .2s
 nav .settings svg path { fill: var(--accent); }
 nav .settings svg:hover { transform: rotate(45deg); }
 
-nav.date-nav { display: flex; margin: 32px 0 8px; }
-nav.date-nav ul { margin: 0 8px 0 0; border-radius: 4px; background: var(--control); padding: 8px 8px 8px 16px; display: inline-block; }
+nav.date-nav { display: flex; flex-direction: column; gap: 8px; margin: 32px 0 8px; }
+nav.date-nav ul { border-radius: 4px; background: var(--control); padding: 8px 16px; }
 nav.date-nav li { display: inline-block; padding: 0; }
 nav.date-nav li a,
 nav.date-nav li input { margin-right: 8px; color: #98a0a6; }
@@ -119,7 +119,7 @@ nav.date-nav li span { margin-right: 8px; }
 .cell { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: right; z-index: 1; position: relative; }
 .cell.main-col { text-align: left; }
 
-.table-row:after {  content: ""; background: var(--progress); position: absolute; height: 34px; top: 0; left: -16px; opacity: .2; border-right: 2px solid var(--progress-border); z-index: 0; }
+.table-row:after {  content: ""; background: var(--progress); position: absolute; height: 100%; top: 0; left: -16px; opacity: .2; border-right: 2px solid var(--progress-border); z-index: 0; }
 .table-row.header:after { background: none; border: none; }
 
 .row.pag {
@@ -151,10 +151,15 @@ div.delete a { color: red; }
 .w100:after{width:99%}.w99:after{width:99%}.w98:after{width:98%}.w97:after{width:97%}.w96:after{width:96%}.w95:after{width:95%}.w94:after{width:94%}.w93:after{width:93%}.w92:after{width:92%}.w91:after{width:91%}.w90:after{width:90%}.w89:after{width:89%}.w88:after{width:88%}.w87:after{width:87%}.w86:after{width:86%}.w85:after{width:85%}.w84:after{width:84%}.w83:after{width:83%}.w82:after{width:82%}.w81:after{width:81%}.w80:after{width:80%}.w79:after{width:79%}.w78:after{width:78%}.w77:after{width:77%}.w76:after{width:76%}.w75:after{width:75%}.w74:after{width:74%}.w73:after{width:73%}.w72:after{width:72%}.w71:after{width:71%}.w70:after{width:70%}.w69:after{width:69%}.w68:after{width:68%}.w67:after{width:67%}.w66:after{width:66%}.w65:after{width:65%}.w64:after{width:64%}.w63:after{width:63%}.w62:after{width:62%}.w61:after{width:61%}.w60:after{width:60%}.w59:after{width:59%}.w58:after{width:58%}.w57:after{width:57%}.w56:after{width:56%}.w55:after{width:55%}.w54:after{width:54%}.w53:after{width:53%}.w52:after{width:52%}.w51:after{width:51%}.w50:after{width:50%}.w49:after{width:49%}.w48:after{width:48%}.w47:after{width:47%}.w46:after{width:46%}.w45:after{width:45%}.w44:after{width:44%}.w43:after{width:43%}.w42:after{width:42%}.w41:after{width:41%}.w40:after{width:40%}.w39:after{width:39%}.w38:after{width:38%}.w37:after{width:37%}.w36:after{width:36%}.w35:after{width:35%}.w34:after{width:34%}.w33:after{width:33%}.w32:after{width:32%}.w31:after{width:31%}.w30:after{width:30%}.w29:after{width:29%}.w28:after{width:28%}.w27:after{width:27%}.w26:after{width:26%}.w25:after{width:25%}.w24:after{width:24%}.w23:after{width:23%}.w22:after{width:22%}.w21:after{width:21%}.w20:after{width:20%}.w19:after{width:19%}.w18:after{width:18%}.w17:after{width:17%}.w16:after{width:16%}.w15:after{width:15%}.w14:after{width:14%}.w13:after{width:13%}.w12:after{width:12%}.w11:after{width:11%}.w10:after{width:10%}.w09:after{width:9%}.w08:after{width:8%}.w07:after{width:7%}.w06:after{width:6%}.w05:after{width:5%}.w04:after{width:4%}.w03:after{width:3%}.w02:after{width:2%}.w01:after{width:1%}.w00:after{width:0}
 
 
+@media ( min-width: 769px ) {
+	nav.date-nav { flex-direction: row; }
+	nav.date-nav ul { display: flex; align-items: center; }
+}
 
 @media ( min-width: 1220px ) {
 	body { padding: 0; }
-	header, footer { margin: 32px 0; }
+	.rapper { padding: 32px 0; }
+	header, footer { margin-bottom: 32px 0; }
 
 	.main-nav li,
 	footer li {
@@ -166,7 +171,6 @@ div.delete a { color: red; }
 	nav li.sites, nav li.settings { float: right; }
 	nav li.sites, nav li.sites.expanded { background-position: 184px 8px; }
 
-	nav .date-nav li { margin-right: 8px; }
 	nav li ul { width: 204px; right: 0; margin: 0;  }
 
 	.box { margin: 0; padding: 32px 16px; }
